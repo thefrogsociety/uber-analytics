@@ -48,7 +48,22 @@ Any vehicle receiving two such complaints in 48 hours should be blocked from the
 
 ### Vehicles
 <img width="1000" height="800" alt="vehicle" src="https://github.com/user-attachments/assets/80f74313-a7d3-4c8e-9f24-496e7e7beab0" />
+#### Analysis
 
+The raw volume masks a significant operational bottleneck: `Go Sedan` and `Auto` are currently underperforming the platform’s average success rate of ~62%. This discrepancy suggests that while demand for these core four-wheel and three-wheel services is massive, we are "leaking" potential revenue due to fulfillment failures in our most popular categories.
+
+Despite having the highest average ride distance (reaching ~25.0 km), `eBike` yields the lowest revenue per kilometer, dipping below the $35/km mark. We are essentially subsidizing long-range travel on our most hardware-intensive (electric) assets without the premium return to justify the wear and tear.
+
+The `Uber XL` segment boasts the highest success rate on the platform (>63%), yet it contributes the least to total revenue (~$1.5M) and maintains the shortest average ride distance. We are using our highest-capacity vehicles for short-burst trips where their utility is wasted, while `Go Sedan` — the vehicle type users likely want for those mid-to-long range trips — suffers from the lowest success rate in the fleet (sub-62%).
+
+Finally, `Bike` is the "Goldilocks" segment of the current dashboard. It successfully balances a high success rate with an average ride distance and booking value that sits comfortably above the platform average. It is currently the most stable bridge between user demand and driver reliability.
+
+#### Suggestion
+- Implement a dispatch nudge that incentivizes `Uber XL` drivers to accept bookings only when the party size is 4+ or the distance exceeds a certain threshold, preventing high-capacity supply from being tied up in low-value, short-distance "convenience" trips.
+- Given they are currently traveling the furthest for the lowest per-km return, the pricing model for `eBike` needs to shift from flat-heavy to distance-sensitive to recover the current yield gap.
+- Prioritize driver onboarding and incentives specifically for the `Go Sedan` category.
+- Introduce a "premier status" for drivers in the `Auto` and `Go Sedan` categories who maintain a success rate above 65%, granting them priority access to the higher-value, longer-distance bookings currently being underserved.
+- During high-demand periods where Go Sedan success rates plummet, offer users a discounted "XL Upgrade" to mop up excess demand using the underutilized but highly reliable XL fleet.
 
 ## Styling 
 All the styling choices are made accordingly to [Uber Branding Guide](https://brandingstyleguides.com/guide/uber-2018/).
